@@ -31,7 +31,7 @@ class MenuLateral extends StatelessWidget {
             accountEmail: Text("dannylayton374@gmail.com"),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("lib/src/resources/images/sami.jpeg"),
+                image: AssetImage("assets/sami.jpeg"),
                 fit: BoxFit.cover, 
               ),
             ),
@@ -78,7 +78,7 @@ class MenuLateral extends StatelessWidget {
           ListTile(
             title: Text("registro"),
             onTap: () {
-              // Navigator.pushNamed(context, "/register");
+              Navigator.pushNamed(context, "/register");
             },
           )
         ]

@@ -11,7 +11,9 @@ class NewsPage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(10.0),
         children: <Widget>[
-          _cardTipo1()
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2()
         ]
       ),
     );
@@ -20,6 +22,8 @@ class NewsPage extends StatelessWidget {
   Widget _cardTipo1() {
     
     return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(15.0)),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -46,6 +50,26 @@ class NewsPage extends StatelessWidget {
   
   }
 
+  Widget _cardTipo2() {
+
+    return Card(
+      child: Column(
+        children: <Widget>[
+          FadeInImage(
+            image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Neckertal_20150527-6384.jpg/1280px-Neckertal_20150527-6384.jpg'),
+            placeholder: AssetImage('assets/jar-loading.gif'),
+            fadeInDuration: Duration( milliseconds: 200 ),
+            height: 300.0,
+            fit: BoxFit.cover,
+            ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Text('No tengo idea que poner'),
+            )
+        ],
+      ),
+    );
+  }
 }
 
 
