@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 
+import 'detail_recipe_page.dart';
+
+
 class RecipePage extends StatelessWidget {
+
+  final List<String> fruits = ["Apples", "Oranges", "Bananas"];
+
+  //get itemCount => fruits.length;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +20,15 @@ class RecipePage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(10.0),
         children: <Widget>[
-          _cardReceta1('https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Neckertal_20150527-6384.jpg/1280px-Neckertal_20150527-6384.jpg'),
+          _cardReceta1(context, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Neckertal_20150527-6384.jpg/1280px-Neckertal_20150527-6384.jpg'),
           SizedBox(height: 30.0),
-          _cardReceta2('assets/pancakes_avena.jpeg'),
+          _cardReceta2(context, 'assets/pancakes_avena.jpeg'),
           SizedBox(height: 30.0),
-          _cardReceta2('assets/pollo.jpeg'),
+          _cardReceta2(context, 'assets/pollo.jpeg'),
           SizedBox(height: 30.0),
-          _cardReceta2('assets/receta1.jpg'),
+          _cardReceta2(context, 'assets/receta1.jpg'),
           SizedBox(height: 30.0),
-          _cardReceta1('https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Neckertal_20150527-6384.jpg/1280px-Neckertal_20150527-6384.jpg'),
+          _cardReceta1(context,'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Neckertal_20150527-6384.jpg/1280px-Neckertal_20150527-6384.jpg'),
           SizedBox(height: 30.0),
         ]
       ),
@@ -62,14 +71,14 @@ class RecipePage extends StatelessWidget {
     );
   }*/
 
-  Widget _cardReceta1(String image_receta) {
+  Widget _cardReceta1(BuildContext context,String imageReceta) {
 
-    final card =  Container(
+    final card = Container(
       //clipBehavior: Clip.antiAlias,
       child: Column(
         children: <Widget>[
           FadeInImage(
-            image: NetworkImage(image_receta),
+            image: NetworkImage(imageReceta),
             placeholder: AssetImage('assets/jar-loading.gif'),
             fadeInDuration: Duration( milliseconds: 200 ),
             height: 300.0,
@@ -83,8 +92,8 @@ class RecipePage extends StatelessWidget {
       ),
     );
 
-
-    return Container(
+    return GestureDetector(
+      child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
         color: Colors.white,
@@ -101,18 +110,25 @@ class RecipePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30.0),
         child: card,
       ),
-    );
+    ),
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => DetailRecipe(fruits[0])) );
+      },
+    ); 
+  
+ 
+}
 
-  }
-
-  Widget _cardReceta2(String image_receta) {
+  Widget _cardReceta2(BuildContext context, String imageReceta) {
 
     final card =  Container(
       //clipBehavior: Clip.antiAlias,
       child: Column(
         children: <Widget>[
           FadeInImage(
-            image: AssetImage(image_receta),
+            image: AssetImage(imageReceta),
             placeholder: AssetImage('assets/jar-loading.gif'),
             fadeInDuration: Duration( milliseconds: 200 ),
             height: 300.0,
@@ -127,23 +143,32 @@ class RecipePage extends StatelessWidget {
     );
 
 
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30.0),
-        color: Colors.white,
-        boxShadow: <BoxShadow> [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 10.0,
-            spreadRadius: 2.0,
-            offset: Offset(2.0, -10.0)
-          )
-        ]
+    return GestureDetector(
+
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          color: Colors.white,
+          boxShadow: <BoxShadow> [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10.0,
+              spreadRadius: 2.0,
+              offset: Offset(2.0, -10.0)
+            )
+          ]
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30.0),
+          child: card,
+        ),
       ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30.0),
-        child: card,
-      ),
+      onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => DetailRecipe(fruits[1])) );
+      }
+      
     );
 
   }
