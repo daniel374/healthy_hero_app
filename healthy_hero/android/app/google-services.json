@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "817592349900",
+    "firebase_url": "https://healthyhero-1bb29.firebaseio.com",
+    "project_id": "healthyhero-1bb29",
+    "storage_bucket": "healthyhero-1bb29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817592349900:android:be76ea37be99bf5188fe69",
+        "android_client_info": {
+          "package_name": "com.example.healthy_hero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817592349900-kjgq16gvv5cjq4o6v6ujmpg4nirg01qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy3uBNIYttPJa9XcAMjKF41SKzmPf-sDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817592349900-kjgq16gvv5cjq4o6v6ujmpg4nirg01qe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "817592349900-vphluurhktcssg07ubbnvmt24ltbrjt0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dlayton.healthyhero"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
