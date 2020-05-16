@@ -4,7 +4,6 @@ abstract class AuthenticationEvent extends Equatable {
   const AuthenticationEvent();
 
   @override
-  // TODO: implement props
   List<Object> get props => [];
 }
 
