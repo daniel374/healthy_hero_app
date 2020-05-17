@@ -34,13 +34,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   
-  firebase_auth: ^0.16.0
+  #firebase_auth: ^0.16.0
   google_sign_in: ^4.4.6
-  equatable: ^1.1.1
-  bloc: ^4.0.0
-  flutter_bloc: ^4.0.0
-  rxdart: ^0.24.1
-  flutter_auth_buttons: ^0.8.0
+  #equatable: ^1.1.1
+  #bloc: ^4.0.0
+  #flutter_bloc: ^4.0.0
+  #rxdart: ^0.24.1
+  #flutter_auth_buttons: ^0.8.0
 
 
 

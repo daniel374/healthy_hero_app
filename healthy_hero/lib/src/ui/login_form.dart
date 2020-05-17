@@ -34,6 +34,13 @@ class _LoginFormState extends State<LoginForm> {
     return state.isFormValid && isPopulated && !state.isSubmitting;
   }
 
+  hexColor(String colorHexCode) {
+    String colornew = '0xff' + colorHexCode;
+    colornew = colornew.replaceAll('#', '');
+    int colorint = int.parse(colornew);
+    return colorint;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -77,15 +84,16 @@ class _LoginFormState extends State<LoginForm> {
       }
     }, child: BlocBuilder<LoginBloc, LoginState>(
       builder: (context, state) {
-        return Padding(
+        return Container(
           padding: EdgeInsets.all(20.0),
+          decoration: BoxDecoration(color: Color(hexColor('#57e1ed'))),
           child: Form(
             child: ListView(
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: Image.asset(
-                    'assets/Healty_hero_Fondo_Gris.jpg',
+                    'assets/Healty_hero_Fondo_Azul.jpg',
                     height: 200,
                   ),
                 ),

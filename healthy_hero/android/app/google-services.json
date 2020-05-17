@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "817592349900-rlo35qivmq76t6r5lp7v5kss7nus9936.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthy_hero",
+            "certificate_hash": "8e04bd9b609df90ccd81ad7aa2990950a7b23587"
+          }
+        },
+        {
           "client_id": "817592349900-kjgq16gvv5cjq4o6v6ujmpg4nirg01qe.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -22,12 +22,23 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Center(child: Text('Bienvenido $name!'),)
-        ],
-      ),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(color: Colors.cyan[200],),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Center(child: Text('Bienvenido $name!', style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w800,
+              fontFamily: 'Roboto',
+              letterSpacing: 0.5,
+              fontSize: 24,
+            ),),
+            ),
+          ],
+        ),
+      ), 
     );
   }
 }
