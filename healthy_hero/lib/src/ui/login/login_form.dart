@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_event.dart';
 import 'package:healthy_hero/src/bloc/login_bloc/bloc.dart';
-import 'package:healthy_hero/src/bloc/bloc.dart';
 import 'package:healthy_hero/src/repository/user_repository.dart';
 import 'package:healthy_hero/src/ui/create_account_button.dart';
-import 'package:healthy_hero/src/ui/google_login_button.dart';
-import 'package:healthy_hero/src/ui/login_button.dart';
+import 'google_login_button.dart';
+import 'login_button.dart';
 
 class LoginForm extends StatefulWidget {
   final UserRepository _userRepository;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_event.dart';
 import 'package:healthy_hero/src/bloc/register_bloc/bloc.dart';
-import 'package:healthy_hero/src/bloc/bloc.dart';
 import 'package:healthy_hero/src/ui/register/register_button.dart';
 
 class RegisterForm extends StatefulWidget {

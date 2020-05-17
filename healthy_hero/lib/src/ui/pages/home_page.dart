@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:healthy_hero/src/bloc/authentication_bloc.dart';
-import 'package:healthy_hero/src/bloc/authentication_event.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_event.dart';
+
 
 
 class MyHomePage extends StatelessWidget {
@@ -97,18 +98,6 @@ class MenuLateral extends StatelessWidget {
               Navigator.pushNamed(context, "/profile");
             },
           ),
-          ListTile(
-            title: Text("login"),
-            onTap: () {
-              Navigator.pushNamed(context, "/login");
-            },
-          ),
-          ListTile(
-            title: Text("registro"),
-            onTap: () {
-              Navigator.pushNamed(context, "/register");
-            },
-          )
         ]
       ),
     );

@@ -3,14 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 import 'package:healthy_hero/routes/routes.dart';
-import 'package:healthy_hero/src/bloc/bloc.dart';
-import 'package:healthy_hero/src/pages/alert_page.dart';
-import 'package:healthy_hero/src/pages/home_page.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_event.dart';
+import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_state.dart';
+
 import 'package:bloc/bloc.dart';
 import 'package:healthy_hero/src/repository/user_repository.dart';
 import 'package:healthy_hero/src/simple_bloc_delegate.dart';
-import 'package:healthy_hero/src/ui/home_screen.dart';
-import 'package:healthy_hero/src/ui/login_screen.dart';
+import 'package:healthy_hero/src/ui/login/login_screen.dart';
+
+import 'package:healthy_hero/src/ui/pages/alert_page.dart';
+import 'package:healthy_hero/src/ui/pages/home_page.dart';
 import 'package:healthy_hero/src/ui/splash_screen.dart';
 
 void main() {

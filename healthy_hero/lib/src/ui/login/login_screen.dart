@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthy_hero/src/bloc/login_bloc/bloc.dart';
 import 'package:healthy_hero/src/repository/user_repository.dart';
-import 'package:healthy_hero/src/ui/login_form.dart';
+import 'login_form.dart';
 
 class LoginScreen extends StatelessWidget {
   final UserRepository _userRepository;
