@@ -34,18 +34,21 @@ class ProfilePage extends StatelessWidget {
               style: Theme.of(context).textTheme.headline5,
             )
           ),
-          Container(
+          Expanded(
+            child: Container(
             decoration: const BoxDecoration(
               color: Color(0xffddddff),
             ),
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              document['fechaCreacion'].toString(),
+              document['hijos'][0]['nombreHijo'].toString(),
               style: Theme.of(context).textTheme.subtitle1,
             ),
           )
+          ),
         ]  
       ),
-    );
+      );
+    
   }
 }
