@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:healthy_hero/bloc_provider.dart';
-import 'package:healthy_hero/src/bloc/recipes_bloc/recipe_bloc.dart';
-import 'package:healthy_hero/src/ui/pages/recipe.dart';
+import 'package:healthy_hero/src/bloc/avatars_bloc.dart/avatars_bloc.dart';
+
+import 'avatars.dart';
 
 
-class RecipePage extends StatelessWidget {
+class AvatarsPage extends StatelessWidget {
 
 
   //MaterialColor colorCustom = MaterialColor(0xffEFB810, color);
@@ -15,7 +16,7 @@ class RecipePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Avatars',
       theme: ThemeData(
         
         primarySwatch: Colors.yellow,
@@ -23,8 +24,8 @@ class RecipePage extends StatelessWidget {
         title: Text("Recetas")
       ),*/
       home: BlocProvider(
-        bloc: RecipeBloc(),
-        child: Recipes(),
+        bloc: AvatarsBloc(),
+        child: Avatars(),
       ),
     );
   }

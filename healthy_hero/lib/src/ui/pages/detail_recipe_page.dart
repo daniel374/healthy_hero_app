@@ -9,7 +9,10 @@ class DetailRecipe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Detalles recetas"),),
+      appBar: AppBar(
+        title: Text("Detalles recetas"),
+        backgroundColor: Color(0xffEFB810),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

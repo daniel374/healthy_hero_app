@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:healthy_hero/bloc_provider.dart';
 import 'package:healthy_hero/src/bloc/recipes_bloc/recipe_bloc.dart';
 
-class FirestoreCRUDPage extends StatefulWidget {
+class Recipes extends StatefulWidget {
   @override
-  FirestoreCRUDPageState createState() {
-    return FirestoreCRUDPageState();
+  RecipesState createState() {
+    return RecipesState();
   }
 }
 
-class FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
+class RecipesState extends State<Recipes> {
   String name;
   final _formKey = GlobalKey<FormState>();
 

@@ -7,6 +7,7 @@ class NewsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("noticias"),
+        backgroundColor: Color(0xffEFB810),
       ),
       body: ListView(
         padding: EdgeInsets.all(10.0),

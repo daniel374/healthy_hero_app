@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_bloc.dart';
 import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_event.dart';
+import 'package:healthy_hero/src/util/styleColor.dart';
 
 
 
@@ -17,6 +18,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("HealthyHero"),
+        backgroundColor: Color(0xffEFB810),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.exit_to_app),
           onPressed: () {
@@ -56,17 +58,17 @@ class MenuLateral extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           new UserAccountsDrawerHeader(
-            accountName: Text("Healthy_hero"), 
+            accountName: Text("HealthyHero"), 
             accountEmail: Text("dannylayton374@gmail.com"),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/sami.jpeg"),
+                image: AssetImage("assets/pancakes_avena.jpeg"),
                 fit: BoxFit.cover, 
               ),
             ),
           ),
           Ink(
-            color: Colors.indigo,
+            color: Color(StyleColor.hexColor('#EFB810')),
             child: ListTile(
             title: Text("home", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900),),
             onTap: () {
@@ -96,6 +98,12 @@ class MenuLateral extends StatelessWidget {
             title: Text("perfil"),
             onTap: () {
               Navigator.pushNamed(context, "/profile");
+            },
+          ),
+          ListTile(
+            title: Text("avatars"),
+            onTap: () {
+              Navigator.pushNamed(context, "/avatars");
             },
           ),
         ]

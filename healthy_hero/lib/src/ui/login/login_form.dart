@@ -5,6 +5,7 @@ import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_event.d
 import 'package:healthy_hero/src/bloc/login_bloc/bloc.dart';
 import 'package:healthy_hero/src/repository/user_repository.dart';
 import 'package:healthy_hero/src/ui/create_account_button.dart';
+import 'package:healthy_hero/src/util/styleColor.dart';
 import 'google_login_button.dart';
 import 'login_button.dart';
 
@@ -33,13 +34,6 @@ class _LoginFormState extends State<LoginForm> {
 
   bool isLoginButtonEnabled(LoginState state) {
     return state.isFormValid && isPopulated && !state.isSubmitting;
-  }
-
-  hexColor(String colorHexCode) {
-    String colornew = '0xff' + colorHexCode;
-    colornew = colornew.replaceAll('#', '');
-    int colorint = int.parse(colornew);
-    return colorint;
   }
 
   @override
@@ -87,7 +81,7 @@ class _LoginFormState extends State<LoginForm> {
       builder: (context, state) {
         return Container(
           padding: EdgeInsets.all(20.0),
-          decoration: BoxDecoration(color: Color(hexColor('#57e6ee'))),
+          decoration: BoxDecoration(color: Color(StyleColor.hexColor('#57e6ee'))),
           child: Form(
             child: ListView(
               children: <Widget>[

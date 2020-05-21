@@ -8,6 +8,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("perfil"),
+        backgroundColor: Color(0xffEFB810),
       ),
       body: StreamBuilder(
         stream: Firestore.instance.collection('usuarios').snapshots(),
