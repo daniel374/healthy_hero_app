@@ -9,8 +9,8 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:rxdart/rxdart.dart';
-import 'receta.dart';
+import 'package:healthy_hero/src/bloc/avatars_bloc.dart/receta.dart';
+
 
 class RecetaBloc {
   //Conectar con Firebase
@@ -26,25 +26,25 @@ class RecetaBloc {
   
 
   //Stream controller
-  final _empleadoListStreamController = StreamController<List<Receta>>();//espera lista de recetas
+  final _recetaListStreamController = StreamController<List<Receta>>();//espera lista de recetas
 
-  final _empleadoSalarioIncrementStreamController = StreamController<Receta>();
-  final _empleadoSalarioDecrementStreamController = StreamController<Receta>();
+  final _recetaSalarioIncrementStreamController = StreamController<Receta>();
+  final _recetaSalarioDecrementStreamController = StreamController<Receta>();
 
   // Getters: Streams y sinks
-  Stream <List<Receta>> get empleadoListStream => _empleadoListStreamController.stream;
-  StreamSink <List<Receta>> get empleadoListSink => _empleadoListStreamController.sink;
+  Stream <List<Receta>> get recetaListStream => _recetaListStreamController.stream;
+  StreamSink <List<Receta>> get recetaListSink => _recetaListStreamController.sink;
 
-  StreamSink <Receta> get empleadoSalarioIncrement => _empleadoSalarioIncrementStreamController.sink;
+  StreamSink <Receta> get recetaSalarioIncrement => _recetaSalarioIncrementStreamController.sink;
 
-  StreamSink <Receta> get empleadoSalarioDecrement => _empleadoSalarioDecrementStreamController.sink;
+  StreamSink <Receta> get recetaSalarioDecrement => _recetaSalarioDecrementStreamController.sink;
 
   // Constructor
   RecetaBloc () {
     //db.initStream().listen((data) => _inFirestore.add(data) );
-    _empleadoListStreamController.add(_recetasList);
-    _empleadoSalarioIncrementStreamController.stream.listen(_incrementSalario);
-    _empleadoSalarioIncrementStreamController.stream.listen(_decrementSalario);
+    _recetaListStreamController.add(_recetasList);
+    _recetaSalarioIncrementStreamController.stream.listen(_incrementSalario);
+    _recetaSalarioIncrementStreamController.stream.listen(_decrementSalario);
   }
 
   //funciones principales
@@ -53,7 +53,7 @@ class RecetaBloc {
     int salarioIncrement = 1;
     
     _recetasList[receta.id - 1].likes = salarioActual + salarioIncrement;
-    empleadoListSink.add(_recetasList);
+    recetaListSink.add(_recetasList);
   }
 
   _decrementSalario(Receta receta) {
@@ -61,14 +61,14 @@ class RecetaBloc {
     int salarioDecrement = 1;
 
     _recetasList[receta.id - 1].likes = salarioActual - salarioDecrement;
-    empleadoListSink.add(_recetasList);
+    recetaListSink.add(_recetasList);
   }
 
   // dispose
   void dispose() {
-    _empleadoSalarioIncrementStreamController.close();
-    _empleadoSalarioDecrementStreamController.close();
-    _empleadoListStreamController.close();
+    _recetaSalarioIncrementStreamController.close();
+    _recetaSalarioDecrementStreamController.close();
+    _recetaListStreamController.close();
   }
 
 }

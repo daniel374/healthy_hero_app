@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_hero/src/bloc/avatars_bloc.dart/receta.dart';
+import 'package:healthy_hero/src/bloc/avatars_bloc.dart/recetaBloc.dart';
 
-import 'receta.dart';
-import 'recetaBloc.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -27,31 +27,7 @@ class _HomePageState extends State<HomePage> {
         title: Text("App Recetas"),
       ),
       body: Container(
-        child: StreamBuilder<List<Receta>>(
-          stream: _recetaBloc.empleadoListStream,
-          builder: (BuildContext context, AsyncSnapshot<List<Receta>> snapshot) { 
-            return ListView.builder(
-              itemCount: snapshot.data.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  elevation: 5.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.all(20.0),
-                        child: Text(
-                          "${snapshot.data[index].nombre}.",
-                          style: TextStyle(fontSize: 20.0)
-                        )
-                      )
-                    ],
-                  )
-                );
-              }
-              );
-           },
-        ),
+        
       ),
     );
   }
