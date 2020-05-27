@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_hero/src/bloc/avatars_bloc.dart/homePage.dart';
 import 'package:healthy_hero/src/ui/pages/avatar_page.dart';
 import 'package:healthy_hero/src/ui/pages/home_page.dart';
 import 'package:healthy_hero/src/ui/pages/news_page.dart';
@@ -14,6 +15,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
       "/recipes" : (BuildContext context) => RecipePage(),
       "/profile" : (BuildContext context) => ProfilePage(),
       "/avatars" : (BuildContext context) => AvatarsPage(),
+      "/apprecetas" : (BuildContext context) => HomePage(),
   };
 
 }

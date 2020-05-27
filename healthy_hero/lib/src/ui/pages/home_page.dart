@@ -106,6 +106,12 @@ class MenuLateral extends StatelessWidget {
               Navigator.pushNamed(context, "/avatars");
             },
           ),
+          ListTile(
+            title: Text("App Recetas"),
+            onTap: () {
+              Navigator.pushNamed(context, "/apprecetas");
+            },
+          ),
         ]
       ),
     );

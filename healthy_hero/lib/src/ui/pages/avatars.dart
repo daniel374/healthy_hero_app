@@ -61,6 +61,7 @@ class AvatarsState extends State<Avatars> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Avatars'),
+        backgroundColor: Color(0xffEFB810),
       ),
       body: ListView(
         padding: EdgeInsets.all(8),

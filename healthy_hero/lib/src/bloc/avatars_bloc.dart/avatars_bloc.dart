@@ -16,7 +16,6 @@ class AvatarsBloc implements BlocBase {
 
   final _idController = BehaviorSubject<String>();
   Stream<String> get outId => _idController.stream;
-  Sink<String> get _inId => _idController.sink;
 
   final _firestoreController = BehaviorSubject<QuerySnapshot>();
   Stream<QuerySnapshot> get outFirestore => _firestoreController.stream;

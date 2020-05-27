@@ -73,7 +73,8 @@ class RecipesState extends State<Recipes> {
     final bloc = BlocProvider.of<RecipeBloc>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Firestore CRUD'),
+        title: Text('Recetas'),
+        backgroundColor: Color(0xffEFB810),
       ),
       body: ListView(
         padding: EdgeInsets.all(8),
