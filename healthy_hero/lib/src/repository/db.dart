@@ -6,12 +6,12 @@ class DB {
   final db = Firestore.instance;
 
   Stream<QuerySnapshot> initStream() {
-    return db.collection('CRUD').snapshots();
+    return db.collection('posts').snapshots();
   }
 
   void readData(String id) async {
-    DocumentSnapshot snapshot = await db.collection('CRUD').document(id).get();
-    print(snapshot.data['name']);
+    DocumentSnapshot snapshot = await db.collection('posts').document(id).get();
+    print(snapshot.data['description']);
   }
 
 

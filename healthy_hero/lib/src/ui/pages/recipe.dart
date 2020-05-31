@@ -15,7 +15,7 @@ class RecipesState extends State<Recipes> {
   final _formKey = GlobalKey<FormState>();
 
   Card buildItem(DocumentSnapshot doc, RecipeBloc bloc) {
-    return Card(
+    /*return Card(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -33,7 +33,46 @@ class RecipesState extends State<Recipes> {
           ],
         ),
       ),
+    );*/
+    return Card(
+      elevation: 10.0,
+      margin: EdgeInsets.all(14.0),
+      child: Container(
+        padding: EdgeInsets.all(14.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  (doc.data['date'] != "") ? doc.data['date'] : "date",
+                  style: Theme.of(context).textTheme.subtitle,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  (doc.data['time'] != "") ? doc.data['time'] : "time",
+                  style: Theme.of(context).textTheme.subtitle,
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
+            SizedBox(height: 10.0,),
+            Image.network(
+              (doc.data['image'] != null) ? doc.data['image'] : "image",
+              fit: BoxFit.cover,
+            ),
+            SizedBox(height: 10.0,),
+            Text(
+              (doc.data['description'] != null) ? doc.data['description'] : "description",
+              style: Theme.of(context).textTheme.subhead,
+              textAlign: TextAlign.center,
+            )
+          ],
+        ),
+      ),
     );
+  
   }
 
 
