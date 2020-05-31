@@ -27,22 +27,6 @@ class RecipeBloc implements BlocBase {
     db.readData(id);
   }
 
-  void updateData(DocumentSnapshot doc) {
-    db.updateData(doc);
-  }
-
-  void deleteData(DocumentSnapshot doc) async {
-    db.deleteData(doc);
-    id = null;
-    _inId.add(null);
-  }
-
-  void createData(String name) async {
-    String id = await db.createData(name);
-    this.id = id;
-    _inId.add(this.id);
-  }
-
   @override
   void dispose() {
     _firestoreController.close();

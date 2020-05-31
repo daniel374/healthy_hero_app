@@ -6,10 +6,10 @@ import 'package:healthy_hero/src/ui/pages/profile_page.dart';
 import 'package:healthy_hero/src/ui/pages/recipe_page.dart';
 
 
-Map<String, WidgetBuilder> getApplicationRoutes() {
+Map<String, WidgetBuilder> getApplicationRoutes({name}) {
   
   return <String, WidgetBuilder>{
-      '/home' : (BuildContext context) => MyHomePage(name: null,),
+      '/home' : (BuildContext context) => MyHomePage(name: name,),
       "/news" : (BuildContext context) => NewsPage(),
       "/recipes" : (BuildContext context) => RecipePage(),
       "/profile" : (BuildContext context) => ProfilePage(),

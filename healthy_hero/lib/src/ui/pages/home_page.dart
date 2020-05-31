@@ -8,32 +8,38 @@ import 'package:healthy_hero/src/util/styleColor.dart';
 
 class MyHomePage extends StatelessWidget {
   
-  final String name;
-  Color c = const Color(0xFF42A5F5);
+  static const routeName = '/extractArguments';
 
+  String name;
+  
   MyHomePage({Key key, @required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("HealthyHero"),
-        backgroundColor: Color(0xffEFB810),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.exit_to_app),
-          onPressed: () {
-            BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
-          },
-          )
-        ],
-      ),
-      drawer: MenuLateral(),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(color: Colors.cyan[200],),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
+
+    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+
+    name = name ?? args.name;
+
+        return Scaffold(
+          appBar: AppBar(
+            title: Text("HealthyHero"),
+            backgroundColor: Color(0xffEFB810),
+            actions: <Widget>[
+              IconButton(icon: Icon(Icons.exit_to_app),
+              onPressed: () {
+                BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+              },
+              )
+            ],
+          ),
+          drawer: MenuLateral(name: name,),
+          body: Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(color: Colors.cyan[200],),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
             Center(child: Text('Bienvenido $name!', style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w800,
@@ -52,8 +58,16 @@ class MyHomePage extends StatelessWidget {
 
 class MenuLateral extends StatelessWidget {
   
+  static const routeName = '/passArguments';
+
+  final String name;
+  const MenuLateral({Key key, @required this.name}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
+
+    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
     return new Drawer(
       child: Container(
         
@@ -62,7 +76,7 @@ class MenuLateral extends StatelessWidget {
           children: <Widget>[
             new UserAccountsDrawerHeader(
               accountName: Text(""), 
-              accountEmail: Text("dannylayton374@gmail.com", style: TextStyle(color:Colors.white)),
+              accountEmail: Text("$name", style: TextStyle(color:Colors.white)),
               decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/imagAdobeMenu.jpg"),
@@ -74,7 +88,7 @@ class MenuLateral extends StatelessWidget {
             title: Text("Casa", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
             leading: Icon(Icons.home),
             onTap: () {
-              Navigator.pushNamed(context, "/home");
+              Navigator.pushNamed(context, "/home", arguments: ScreenArguments( name));
             }, 
           ),
           ListTile(
@@ -121,4 +135,10 @@ class MenuLateral extends StatelessWidget {
       ),
     );
   }
+}
+
+
+class ScreenArguments {
+  final String name;
+  ScreenArguments(this.name);
 }

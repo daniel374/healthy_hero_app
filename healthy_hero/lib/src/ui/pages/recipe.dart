@@ -30,43 +30,13 @@ class RecipesState extends State<Recipes> {
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                FlatButton(
-                  onPressed: () => bloc.updateData(doc),
-                  child: Text('Update todo', style: TextStyle(color: Colors.white)),
-                  color: Colors.green,
-                ),
-                SizedBox(width: 8),
-                FlatButton(
-                  onPressed: () => bloc.deleteData(doc),
-                  child: Text('Delete'),
-                ),
-              ],
-            )
           ],
         ),
       ),
     );
   }
 
-  TextFormField buildTextFormField() {
-    return TextFormField(
-      decoration: InputDecoration(
-        border: InputBorder.none,
-        hintText: 'name',
-        fillColor: Colors.grey[300],
-        filled: true,
-      ),
-      validator: (value) {
-        if (value.isEmpty) {
-          return 'Please enter some text';
-        }
-      },
-      onSaved: (value) => name = value,
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -78,18 +48,10 @@ class RecipesState extends State<Recipes> {
       body: ListView(
         padding: EdgeInsets.all(8),
         children: <Widget>[
-          Form(
-            key: _formKey,
-            child: buildTextFormField(),
-          ),
-          Row(
+          /*Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              RaisedButton(
-                onPressed: () => validateAndCreateData(bloc),
-                child: Text('Create', style: TextStyle(color: Colors.white)),
-                color: Colors.green,
-              ),
+              
               StreamBuilder<String>(
                 stream: bloc.outId,
                 initialData: null,
@@ -102,7 +64,7 @@ class RecipesState extends State<Recipes> {
                 },
               ),
             ],
-          ),
+          ),*/
           StreamBuilder<QuerySnapshot>(
             stream: bloc.outFirestore,
             builder: (context, snapshot) {
@@ -118,10 +80,5 @@ class RecipesState extends State<Recipes> {
     );
   }
 
-  void validateAndCreateData(RecipeBloc bloc) async {
-    if (_formKey.currentState.validate()) {
-      _formKey.currentState.save();
-      bloc.createData(name);
-    }
-  }
+
 }
