@@ -55,58 +55,69 @@ class MenuLateral extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Drawer(
-      child: ListView(
-        children: <Widget>[
-          new UserAccountsDrawerHeader(
-            accountName: Text("HealthyHero"), 
-            accountEmail: Text("dannylayton374@gmail.com"),
-            decoration: BoxDecoration(
+      child: Container(
+        
+        color: Color(StyleColor.hexColor('#EFB810')),
+        child: ListView(
+          children: <Widget>[
+            new UserAccountsDrawerHeader(
+              accountName: Text(""), 
+              accountEmail: Text("dannylayton374@gmail.com", style: TextStyle(color:Colors.white)),
+              decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/pancakes_avena.jpeg"),
+                image: AssetImage("assets/imagAdobeMenu.jpg"),
                 fit: BoxFit.cover, 
               ),
             ),
           ),
-          Ink(
-            color: Color(StyleColor.hexColor('#EFB810')),
-            child: ListTile(
-            title: Text("home", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900),),
+          ListTile(
+            title: Text("Casa", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.home),
             onTap: () {
               Navigator.pushNamed(context, "/home");
-            },
-          ),
+            }, 
           ),
           ListTile(
-            title: Text("recetas"),
+            title: Text("Recetas", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.restaurant),
             onTap: () {
               Navigator.pushNamed(context, "/recipes");
             },
           ),
           ListTile(
-            title: Text("dietas"),
-            onTap: () {
-              Navigator.pushNamed(context, "/dietas");
-            },
-          ),
-          ListTile(
-            title: Text("noticias"),
+            title: Text("Noticias", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.library_books),
             onTap: () {
               Navigator.pushNamed(context, "/news");
             },
           ),
           ListTile(
-            title: Text("perfil"),
+          
+            title: Text("Mi cuenta", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.account_box),
             onTap: () {
               Navigator.pushNamed(context, "/profile");
             },
           ),
-          ListTile(
-            title: Text("avatars"),
+          Ink(
+            decoration: BoxDecoration(
+              color: Color(StyleColor.hexColor('#EFB810')),
+              border: Border(
+                bottom: BorderSide(color: Colors.black54)
+                )
+              ),
+            child: ListTile(
+            title: Text("Compartir App", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.people),
             onTap: () {
               Navigator.pushNamed(context, "/avatars");
             },
           ),
+          ),
+          
         ]
+        
+        ),
       ),
     );
   }
