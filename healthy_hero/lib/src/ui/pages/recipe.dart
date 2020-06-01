@@ -39,11 +39,7 @@ class RecipesState extends State<Recipes> {
       margin: EdgeInsets.all(14.0),
       
       child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/Textura_Con_Fondo.jpg"), 
-            fit: BoxFit.cover)
-        ),
+        
         padding: EdgeInsets.all(14.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
