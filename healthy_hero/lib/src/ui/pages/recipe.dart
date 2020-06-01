@@ -37,7 +37,13 @@ class RecipesState extends State<Recipes> {
     return Card(
       elevation: 10.0,
       margin: EdgeInsets.all(14.0),
+      
       child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/Textura_Con_Fondo.jpg"), 
+            fit: BoxFit.cover)
+        ),
         padding: EdgeInsets.all(14.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,11 +88,17 @@ class RecipesState extends State<Recipes> {
     final bloc = BlocProvider.of<RecipeBloc>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Firestore CRUD'),
+        title: Text('Recetas'),
       ),
-      body: ListView(
-        padding: EdgeInsets.all(8),
-        children: <Widget>[
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/Textura_Con_Fondo.jpg"), 
+            fit: BoxFit.cover)
+        ),
+        child: ListView(
+          padding: EdgeInsets.all(8),
+          children: <Widget>[
           /*Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -116,6 +128,10 @@ class RecipesState extends State<Recipes> {
           )
         ],
       ),
+      )
+      
+      
+      
     );
   }
 

@@ -36,7 +36,13 @@ class MyHomePage extends StatelessWidget {
           drawer: MenuLateral(name: name,),
           body: Container(
             padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(color: Colors.cyan[200],),
+            //decoration: BoxDecoration(color: Colors.cyan[200],),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/Textura_Con_Fondo.jpg"), 
+                fit: BoxFit.cover
+              )
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
