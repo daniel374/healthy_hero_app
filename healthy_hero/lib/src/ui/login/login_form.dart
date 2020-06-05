@@ -81,7 +81,13 @@ class _LoginFormState extends State<LoginForm> {
       builder: (context, state) {
         return Container(
           padding: EdgeInsets.all(20.0),
-          decoration: BoxDecoration(color: Color(StyleColor.hexColor('#57e6ee'))),
+          decoration: BoxDecoration(
+            //color: Color(StyleColor.hexColor('#57e6ee'))
+            image: DecorationImage(
+                image: AssetImage("assets/Textura_Con_Fondo.jpg"), 
+                fit: BoxFit.cover
+              )
+            ),
           child: Form(
             child: ListView(
               children: <Widget>[

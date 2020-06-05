@@ -85,10 +85,16 @@ class _RegisterFormState extends State<RegisterForm> {
       },
       child: BlocBuilder<RegisterBloc, RegisterState>(
         builder: (context, state) {
-          return Padding(
-            padding: EdgeInsets.all(20),
-            child: Form(
-              child: ListView(
+          return Form(
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/Textura_Con_Fondo.jpg"), 
+                    fit: BoxFit.cover
+                    )
+                  ),
+                child: ListView(
                 children: <Widget>[
                   // Un textForm para email
                   TextFormField(
@@ -126,8 +132,8 @@ class _RegisterFormState extends State<RegisterForm> {
                   )
                 ],
               ),
-            ),
-          );
+              )
+            );
         },
       )
     );
