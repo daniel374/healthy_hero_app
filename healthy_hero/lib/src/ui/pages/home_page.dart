@@ -134,6 +134,14 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ),
+          ListTile(
+          
+            title: Text("Etiqueta Alimentos", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.account_box),
+            onTap: () {
+              Navigator.pushNamed(context, "/detalleAlimentos");
+            },
+          ),
           
         ]
         
