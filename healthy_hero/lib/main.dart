@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 
 void main(){
 
@@ -20,6 +21,7 @@ class LandingScreen extends StatefulWidget {
 class _LandindScreenState extends State<LandingScreen> {
 
   File _imageFile;
+  String recognizedText = "Loading ...";
 
   //final ImagePicker _picker = ImagePicker();
 
@@ -27,7 +29,6 @@ class _LandindScreenState extends State<LandingScreen> {
     //final pickedFile = await _picker.getImage(source: ImageSource.gallery);
     final pickedFile = await ImagePicker.pickImage(source: ImageSource.gallery);
     this.setState(() {
-      
       _imageFile = pickedFile;
     });
     Navigator.of(context).pop();
@@ -35,11 +36,40 @@ class _LandindScreenState extends State<LandingScreen> {
   _openCamera(BuildContext context) async {
     final pickedFile = await ImagePicker.pickImage(source: ImageSource.camera);
     this.setState(() {
-      
       _imageFile = pickedFile;
     });
     Navigator.of(context).pop();
   }
+
+  // Para MLkit
+  _mlkitfunct(File _imageFile) async {
+    final visionImage = FirebaseVisionImage.fromFile(_imageFile);
+    final TextRecognizer textRecognizer = FirebaseVision.instance.textRecognizer();
+    final VisionText visionText = await textRecognizer.processImage(visionImage);
+
+    //reconoce emails
+    // got the pattern from that SO answer: https://stackoverflow.com/questions/16800540/validate-email-address-in-dart
+    String mailPattern =
+        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
+    RegExp regEx = RegExp(mailPattern);
+
+    String mailAddress =
+        "Couldn't find any mail in the foto! Please try again!";
+    for (TextBlock block in visionText.blocks) {
+      for (TextLine line in block.lines) {
+        if (regEx.hasMatch(line.text)) {
+          mailAddress = line.text;
+        }
+      }
+    }
+
+    if (this.mounted) {
+      setState(() {
+        recognizedText = mailAddress;
+      });
+    }
+  }
+  
 
   Future<void> _showChoiceDialog(BuildContext context) {
     return showDialog(context: context, builder: (BuildContext context){
@@ -70,7 +100,12 @@ class _LandindScreenState extends State<LandingScreen> {
 
 
   Widget _decideImageView() {
-    return (_imageFile != null) ? Image.file(_imageFile,width: 400, height: 400) : Text('No hay imagen seleccionada!');
+    if (_imageFile != null) {
+      _mlkitfunct(_imageFile);
+      return Image.file(_imageFile,width: 400, height: 400);
+    }else{
+      return Text('No hay imagen seleccionada!');
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -87,7 +122,11 @@ class _LandindScreenState extends State<LandingScreen> {
               RaisedButton(onPressed: (){
                 _showChoiceDialog(context);
               },
-              child: Text("Seleccione Imagen"),
+              //child: Text("Seleccione Imagen"),
+              child: Text(
+                  recognizedText,
+                  style: Theme.of(context).textTheme.bodyText1,
+              ),
             )
           ].where((child) => child != null).toList(),
           ),
