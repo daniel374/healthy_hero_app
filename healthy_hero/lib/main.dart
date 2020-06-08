@@ -1,82 +1,97 @@
+import 'dart:io';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
+void main(){
 
-import 'package:healthy_hero/routes/routes.dart';
-import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_bloc.dart';
-import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_event.dart';
-import 'package:healthy_hero/src/bloc/authentication_bloc/authentication_state.dart';
-
-import 'package:bloc/bloc.dart';
-import 'package:healthy_hero/src/repository/user_repository.dart';
-import 'package:healthy_hero/src/simple_bloc_delegate.dart';
-import 'package:healthy_hero/src/ui/login/login_screen.dart';
-
-import 'package:healthy_hero/src/ui/pages/alert_page.dart';
-import 'package:healthy_hero/src/ui/pages/home_page.dart';
-import 'package:healthy_hero/src/ui/splash_screen.dart';
-
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  BlocSupervisor.delegate = SimpleBlocDelegate();
-
-  final UserRepository userRepository = UserRepository();
-
-  runApp(
-    BlocProvider(
-      create: (context) => AuthenticationBloc(userRepository: userRepository)
-      ..add(AppStarted()),
-      child: MyApp(userRepository: userRepository),
-    )
-  );
-
+  runApp(new MaterialApp(
+    title: "Camera App",
+    home: LandingScreen(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  final UserRepository _userRepository;
+class LandingScreen extends StatefulWidget {
+  @override
+  _LandindScreenState createState() => _LandindScreenState();
+}
 
-  MyApp({Key key, @required UserRepository userRepository})
-   : assert (userRepository != null),
-     _userRepository = userRepository,
-     super(key: key);
-  // This widget is the root of your application.
+class _LandindScreenState extends State<LandingScreen> {
+
+  File _imageFile;
+
+  //final ImagePicker _picker = ImagePicker();
+
+  _openGallery(BuildContext context) async {
+    //final pickedFile = await _picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await ImagePicker.pickImage(source: ImageSource.gallery);
+    this.setState(() {
+      
+      _imageFile = pickedFile;
+    });
+    Navigator.of(context).pop();
+  }
+  _openCamera(BuildContext context) async {
+    final pickedFile = await ImagePicker.pickImage(source: ImageSource.camera);
+    this.setState(() {
+      
+      _imageFile = pickedFile;
+    });
+    Navigator.of(context).pop();
+  }
+
+  Future<void> _showChoiceDialog(BuildContext context) {
+    return showDialog(context: context, builder: (BuildContext context){
+      return AlertDialog(
+        title: Text('Seleccionar!'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              GestureDetector(
+                child: Text("Galeria"),
+                onTap: (){
+                  _openGallery(context);
+                },
+              ),
+              Padding(padding: EdgeInsets.all(8.0)),
+              GestureDetector(
+                child: Text("Camara"),
+                onTap: (){
+                  _openCamera(context);
+                },
+              )
+            ],
+          ),
+        ),
+      );
+    });
+  }
+
+
+  Widget _decideImageView() {
+    return (_imageFile == null) ? new Image.file(_imageFile,width: 400, height: 400) : Text('No hay imagen seleccionada!');
+  }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        
-        primarySwatch: Colors.yellow,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Main Screen"),
       ),
-      initialRoute: '/',
-      routes: getApplicationRoutes(),
-      onGenerateRoute: ( RouteSettings settings ) {
-
-        print( 'Ruta llamada: ${ settings.name } ');
-        return MaterialPageRoute(
-          builder: ( BuildContext context ) => AlertPage(),
-        
-        );
-
-      },
-      //home: MyHomePage(),
-
-      home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-        builder: (context, state){
-          if (state is Uninitialized) {
-            return SplashScreen();
-          }
-          if (state is Authenticated) {
-            //return HomeScreen(name: state.displayName,);
-            return MyHomePage(name: state.displayName,);
-          }
-          if (state is Unauthenticated) {
-            return LoginScreen(userRepository: _userRepository,);// <- Login
-          }
-          return Container();
-        },
-        
+      body: Container(
+        child: Center( 
+            child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              _decideImageView(),
+              RaisedButton(onPressed: (){
+                _showChoiceDialog(context);
+              },
+              child: Text("Seleccione Imagen"),
+            )
+          ].where((child) => child != null).toList(),
+          ),
+        )
       ),
     );
   }
