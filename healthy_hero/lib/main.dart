@@ -70,7 +70,7 @@ class _LandindScreenState extends State<LandingScreen> {
 
 
   Widget _decideImageView() {
-    return (_imageFile == null) ? new Image.file(_imageFile,width: 400, height: 400) : Text('No hay imagen seleccionada!');
+    return (_imageFile != null) ? Image.file(_imageFile,width: 400, height: 400) : Text('No hay imagen seleccionada!');
   }
   @override
   Widget build(BuildContext context) {
