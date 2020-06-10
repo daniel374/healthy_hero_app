@@ -112,6 +112,13 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
+            title: Text("Canasta de alimentos", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.library_books),
+            onTap: () {
+              Navigator.pushNamed(context, "/listalimentos");
+            },
+          ),
+          ListTile(
           
             title: Text("Mi cuenta", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
             leading: Icon(Icons.account_box),

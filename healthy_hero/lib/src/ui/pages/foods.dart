@@ -59,13 +59,13 @@ class FoodsState extends State<Foods> {
                 )
               ],
             ),
-            /*SizedBox(height: 10.0,),
+            SizedBox(height: 10.0,),
             Image.network(
               (doc.data['image'] != null) ? doc.data['image'] : "image",
               fit: BoxFit.cover,
             ),
             SizedBox(height: 10.0,),
-            Text(
+            /*Text(
               (doc.data['description'] != null) ? doc.data['description'] : "description",
               style: Theme.of(context).textTheme.subhead,
               textAlign: TextAlign.center,

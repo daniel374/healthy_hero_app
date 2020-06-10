@@ -4,12 +4,12 @@ class Foodsdb {
   final foodsdb = Firestore.instance;
 
   Stream<QuerySnapshot> initStream() {
-    return foodsdb.collection('alimentos').snapshots();
+    return foodsdb.collection('avatars').snapshots();
   }
 
   void readData(String id) async {
-    DocumentSnapshot snapshot = await foodsdb.collection('alimentos').document(id).get();
-    print(snapshot.data['namefood']);
+    DocumentSnapshot snapshot = await foodsdb.collection('avatars').document(id).get();
+    print(snapshot.data['name']);
   }
 
 
