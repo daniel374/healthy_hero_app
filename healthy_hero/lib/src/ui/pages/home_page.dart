@@ -91,7 +91,7 @@ class MenuLateral extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text("Casa", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            title: Text("Home", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
             leading: Icon(Icons.home),
             onTap: () {
               Navigator.pushNamed(context, "/home", arguments: ScreenArguments( name));
@@ -126,6 +126,21 @@ class MenuLateral extends StatelessWidget {
               Navigator.pushNamed(context, "/profile");
             },
           ),
+          ListTile(
+          
+            title: Text("Etiqueta Alimentos", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.center_focus_strong),
+            onTap: () {
+              Navigator.pushNamed(context, "/detalleAlimentos");
+            },
+          ),
+          /*ListTile(
+            title: Text("Avatars", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
+            leading: Icon(Icons.person_pin),
+            onTap: () {
+              Navigator.pushNamed(context, "/avatars");
+            },
+          ),*/
           Ink(
             decoration: BoxDecoration(
               color: Color(StyleColor.hexColor('#EFB810')),
@@ -140,14 +155,6 @@ class MenuLateral extends StatelessWidget {
               Navigator.pushNamed(context, "/avatars");
             },
           ),
-          ),
-          ListTile(
-          
-            title: Text("Etiqueta Alimentos", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
-            leading: Icon(Icons.center_focus_strong),
-            onTap: () {
-              Navigator.pushNamed(context, "/detalleAlimentos");
-            },
           ),
           
         ]

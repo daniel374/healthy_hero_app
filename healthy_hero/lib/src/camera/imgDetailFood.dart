@@ -39,14 +39,14 @@ class _LandindScreenState extends State<LandingScreen> {
     final TextRecognizer textRecognizer = FirebaseVision.instance.textRecognizer();
     final VisionText visionText = await textRecognizer.processImage(visionImage);
 
-    //reconoce emails
+    //example reconoce emails
     // got the pattern from that SO answer: https://stackoverflow.com/questions/16800540/validate-email-address-in-dart
     String mailPattern =
         r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
     RegExp regEx = RegExp(mailPattern);
 
     String mailAddress =
-        "No se encontro mail en la foto! Por favor intenta de nuevo!";
+        "No se encontro texto en la foto! Por favor intenta de nuevo!";
     for (TextBlock block in visionText.blocks) {
       for (TextLine line in block.lines) {
         /*if (regEx.hasMatch(line.text)) {
@@ -97,14 +97,14 @@ class _LandindScreenState extends State<LandingScreen> {
       _mlkitfunct(_imageFile);
       return Image.file(_imageFile,width: 400, height: 400);
     }else{
-      return Text('No hay imagen seleccionada!');
+      return Text('No hay imagen de etiqueta seleccionada!');
     }
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Main Screen"),
+        title: Text("Escaner de etiqueta de alimentos"),
       ),
       body: Container(
         child: Center( 
@@ -112,17 +112,16 @@ class _LandindScreenState extends State<LandingScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               _decideImageView(),
+              Text(recognizedText,),
               RaisedButton(onPressed: (){
                 _showChoiceDialog(context);
               },
-              //child: Text("Seleccione Imagen"),
-              child: Text(
-                  recognizedText,
-                  style: Theme.of(context).textTheme.bodyText1,
-              ),
+              child: Text("Seleccione Imagen"),
+              
             )
           ].where((child) => child != null).toList(),
           ),
+          
         )
       ),
     );

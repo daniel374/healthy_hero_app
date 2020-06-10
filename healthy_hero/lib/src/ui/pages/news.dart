@@ -79,7 +79,7 @@ class NewsState extends State<News> {
     final bloc = BlocProvider.of<NewsBloc>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista alimentos'),
+        title: Text('Noticias y hábitos saludables'),
       ),
       body: Container(
         decoration: BoxDecoration(

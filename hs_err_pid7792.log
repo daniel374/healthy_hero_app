@@ -1,0 +1,129 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 480104 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=7792, tid=0x0000000000003fa0
+#
+# JRE version:  (8.0_212-b04) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.212-b04 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002be3800):  JavaThread "Unknown thread" [_thread_in_vm, id=16288, stack(0x0000000002ae0000,0x0000000002be0000)]
+
+Stack: [0x0000000002ae0000,0x0000000002be0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000002be3800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=16288, stack(0x0000000002ae0000,0x0000000002be0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000701800000, size: 3048 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff7591c0000 - 0x00007ff7591f1000 	C:\Program Files\Android\Android Studio1\jre\bin\java.EXE
+0x00007ff86eea0000 - 0x00007ff86f090000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff86e020000 - 0x00007ff86e0d2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff86c7d0000 - 0x00007ff86ca74000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff86cf50000 - 0x00007ff86cff3000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff86d090000 - 0x00007ff86d12e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff86ec80000 - 0x00007ff86ed17000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff86de30000 - 0x00007ff86df50000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff86eae0000 - 0x00007ff86ec74000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff86c7a0000 - 0x00007ff86c7c1000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff86d000000 - 0x00007ff86d026000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff86cb00000 - 0x00007ff86cc94000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff86bf80000 - 0x00007ff86c01e000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff86cca0000 - 0x00007ff86cd9a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff864930000 - 0x00007ff864bb4000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.836_none_e6c4b943130f18ed\COMCTL32.dll
+0x00007ff86daf0000 - 0x00007ff86de26000 	C:\WINDOWS\System32\combase.dll
+0x00007ff86ce20000 - 0x00007ff86cea0000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff86d060000 - 0x00007ff86d08e000 	C:\WINDOWS\System32\IMM32.DLL
+0x000000006afc0000 - 0x000000006b092000 	C:\Program Files\Android\Android Studio1\jre\jre\bin\msvcr100.dll
+0x000000006a060000 - 0x000000006a8a6000 	C:\Program Files\Android\Android Studio1\jre\jre\bin\server\jvm.dll
+0x00007ff86da70000 - 0x00007ff86da78000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff8689f0000 - 0x00007ff868a14000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff8606b0000 - 0x00007ff8606ba000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff8689c0000 - 0x00007ff8689ed000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ff86cdd0000 - 0x00007ff86ce1a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ff8534f0000 - 0x00007ff8534f9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff86e1a0000 - 0x00007ff86e20f000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff868470000 - 0x00007ff86847f000 	C:\Program Files\Android\Android Studio1\jre\jre\bin\verify.dll
+0x00007ff84de00000 - 0x00007ff84de29000 	C:\Program Files\Android\Android Studio1\jre\jre\bin\java.dll
+0x00007ff8509a0000 - 0x00007ff8509b6000 	C:\Program Files\Android\Android Studio1\jre\jre\bin\zip.dll
+
+VM Arguments:
+java_command: <unknown>
+java_class_path (initial): .
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jre1.8.0_221
+PATH=C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\ProgramData\chocolatey\bin;C:\Program Files\Microsoft Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Users\DANI3\Anaconda2;C:\Users\DANI3\Anaconda2\Library\bin;C:\Users\DANI3\Anaconda2\Scripts;C:\opencv\build\x64\vc14\bin;C:\Program Files\PuTTY\;C:\PostgreSQL\pg10\bin;C:\HashiCorp\Vagrant\bin;C:\Go\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Tortoi;C:\Program Files (x86)\Brackets\command;C:\Program Files\Symfony;C:\src\flutter\flutter\bin;C:\tools\dart-sdk\bin;C:\Users\DANI3\AppData\Local\Android\Sdk;C:\Users\DANI3\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\DANI3\AppData\Roaming\npm;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\php;C:\composer;C:\Users\DANI3\AppData\Local\Programs\Python\Python36\Scripts;C:\Users\DANI3\AppData\Local\Programs\Python\Python36;C:\Program Files\MongoDB\Server\4.2\bin;C:\Program Files\Git\cmd;C:\Users\DANI3\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\DANI3\AppData\Local\atom\bin;C:\Users\DANI3\go\bin;C:\Users\DANI3\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Docker Toolbox;C:\Program Files\heroku\bin;C:\Users\DANI3\AppData\Roaming\npm;C:\src\flutter\flutter\bin;C:\tools\dart-sdk\bin;C:\Users\DANI3\AppData\Roaming\Pub\Cache\bin;C:\Users\DANI3\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\DANI3\AppData\Local\Android\Sdk;C:\Users\DANI3\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\DANI3\AppData\Roaming\Composer\vendor\bin;C:\tools\dart-sdk\bin;;C:\src\flutter\flutter\bin\mingit\cmd
+USERNAME=DANI3
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 69 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.778)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 12476780k(2156464k free), swap 17596780k(77180k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.212-b04) for windows-amd64 JRE (1.8.0_212-release-1586-b04), built by "builder" with MS VC++ 10.0 (VS2010)
+
+time: Wed Jun 10 11:25:07 2020
+timezone: Hora est. Pacífico, Sudamérica
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

@@ -8,6 +8,11 @@
             "name": "Flutter",
             "request": "launch",
             "type": "dart"
-        }
+        },
+        {
+            "name": "Flutter: Attach to Device",
+            "type": "dart",
+            "request": "attach"
+        },
     ]
 }
