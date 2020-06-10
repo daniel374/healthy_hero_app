@@ -53,7 +53,7 @@ class FoodsState extends State<Foods> {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  (doc.data['name'] != "") ? doc.data['name'] : "precio",
+                  (doc.data['cost'] != "") ? doc.data['cost'] : "precio",
                   style: Theme.of(context).textTheme.subtitle,
                   textAlign: TextAlign.center,
                 )

@@ -106,14 +106,14 @@ class MenuLateral extends StatelessWidget {
           ),
           ListTile(
             title: Text("Noticias", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
-            leading: Icon(Icons.library_books),
+            leading: Icon(Icons.new_releases),
             onTap: () {
               Navigator.pushNamed(context, "/news");
             },
           ),
           ListTile(
             title: Text("Canasta de alimentos", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
-            leading: Icon(Icons.library_books),
+            leading: Icon(Icons.shopping_basket),
             onTap: () {
               Navigator.pushNamed(context, "/listalimentos");
             },
@@ -144,7 +144,7 @@ class MenuLateral extends StatelessWidget {
           ListTile(
           
             title: Text("Etiqueta Alimentos", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18),),
-            leading: Icon(Icons.account_box),
+            leading: Icon(Icons.center_focus_strong),
             onTap: () {
               Navigator.pushNamed(context, "/detalleAlimentos");
             },
